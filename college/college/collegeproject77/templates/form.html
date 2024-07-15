@@ -1,0 +1,230 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Creative Colorlib SignUp Form</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="{% static 'assets/css/form.css' %}" rel="stylesheet" type="text/css" media="all" />
+	<style>
+.form .column {
+	display: flex;
+	column-gap: 15px;
+}
+.form .column .input-box input {
+	width: 80%;
+    margin-top: 20px;
+}
+.@media screen and(max-width:500px) {
+	.form .column {
+		flex-wrap: wrap;
+	}
+}
+.form .gender-box{
+	margin-top: 20px;
+}
+.gender-box h3{
+	color: #333;
+	font-size: 1rem;
+	font-weight:400;
+	margin-bottom: 8px;
+}
+
+.form :where(.Gender-option, .gender) {
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    flex-wrap:wrap;
+
+}
+.form .gender {
+	column-gap: 5px;
+}
+.form :where(.gender input, .gender label) {
+	cursor: pointer;
+
+}
+.form :where(.input-box input, .select-box) {
+    position: relative;
+    height: 50px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #707070;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+}
+.select-box select{
+	height: 100%;
+	width: 100%;
+	outline: none;
+	border: none;
+	color: #707070;
+	font-size: 1rem;
+}
+.form button{
+	height: 55px;
+	width: 100%;
+	color: #fff;
+	font-size: 1rem;
+	border: none;
+	margin-top: 30px;
+	cursor: pointer;
+	border-radius: 6px;
+	font-weight: 400;
+	background-color: rgb(130, 106, 251);
+}
+
+	</style>
+<!-- //Custom Theme files -->
+<!-- web font -->
+<!--<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">-->
+
+</head>
+<body>
+	<section class ="container">
+		<header>FORM</header>
+		<form action="form" method="post" class="form">
+			{% csrf_token %}
+			<div class="input-box">
+				<label>Name</label>
+				<input type="text" placeholder="Enter Full Name" name="name" required/>
+			</div>
+
+			<div class="input-box">
+				<label>Email Address</label>
+				<input type="text" placeholder="Enter your Email Address" name="email" required/>
+			</div>
+
+			<div class="column">
+				<div class="input-box">
+				<label>Phone Number</label>
+				<input type="number" placeholder="Enter Phone Number" name="phone_number" required/>
+				</div>
+				<div class="input-box">
+				<label>Date of Birth</label>
+				<input type="date" placeholder="Enter Birth Date" name="dob" required/>
+			</div>
+				<div class="input-box">
+				<label>Age</label>
+				<input type="number" placeholder="Enter Your Age" name="age" required/>
+			</div>
+			</div>
+
+			<div class="gender-box">
+				<h3>Gender</h3>
+				<div class="Gender-option">
+					<div class="gender">
+						<input type="radio" id="check-male" name="gender" />
+						<label for="check-male">Male</label>
+					</div>
+
+					<div class="gender">
+						<input type="radio" id="check-female" name="gender" />
+						<label for="check-female">Female</label>
+					</div>
+
+					<div class="gender">
+						<input type="radio" id="check-other" name="gender" />
+						<label for="check-other">Other</label>
+					</div>
+				</div>
+			</div>
+			<div class="input-box addres">
+				<label>Address</label>
+				<input type="text" placeholder="Enter address" name="address" required/>
+				<input type="text" placeholder="Enter address line 2" name="address2" required/>
+				<div class="column">
+					<div class="select-box">
+						<select name="country">
+							<option hidden name="country">Country</option>
+							<option >Japan</option>
+							<option >America</option>
+							<option >India</option>
+							<option >Iceland</option>
+							<option >China</option>
+							<option >Russia</option>
+
+						</select>
+					</div>
+					<input type="text" placeholder="Enter your city" name="city" required/>
+				</div>
+
+				<div class="column">
+					<input type="text" placeholder="Enter your region" name="region" required/>
+				<input type="text" placeholder="Enter your postal code" name="postal" required/>
+				</div>
+			</div>
+
+			<div class="column">
+				<div class="select-box">
+						<select name="department">
+							<option hidden>Department</option>
+							<option value="1" >Biology</option>
+							<option value="2" >Computer</option>
+							<option value="3" >Commerce</option>
+							<option value="4" >Humanities</option>
+
+						</select>
+					</div>
+				<div class="select-box">
+						<select name="courses">
+							<option hidden>Courses</option>
+							<option >Japan</option>
+							<option >America</option>
+							<option >India</option>
+							<option >Iceland</option>
+							<option >China</option>
+							<option >Russia</option>
+
+						</select>
+					</div>
+			</div>
+			<div class="column">
+				<div class="select-box">
+						<select name="purpose">
+							<option hidden>Purpose</option>
+							<option >Enquiry</option>
+							<option >Place Order</option>
+							<option >Return </option>
+
+
+						</select>
+					</div>
+
+			</div>
+
+			<div class="column">
+				<div class="gender-box">
+				<h3>Materials Provide</h3>
+				<div class="Gender-option">
+					<div class="gender">
+						<input type="radio" id="check-Note Book" name="notebook" />
+						<label for="check-Note Book">Note Book</label>
+					</div>
+
+					<div class="gender">
+						<input type="radio" id="check-Pen" name="pen" />
+						<label for="check-Pen">Pen</label>
+					</div>
+
+					<div class="gender">
+						<input type="radio" id="check-pencil" name="pencil" />
+						<label for="check-pencil">Pencil</label>
+					</div>
+					<div class="gender">
+						<input type="radio" id="check-papers" name="papers" />
+						<label for="check-papers">Papers</label>
+					</div>
+				</div>
+			</div>
+			</div>
+			<button>Submit</button>
+		</form>
+	</section>
+</body>
+</html>

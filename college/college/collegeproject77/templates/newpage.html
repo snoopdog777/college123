@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+
+    <link href="{% static 'assets/css/stylenewpage.css' %}" rel="stylesheet">
+
+<style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: -webkit-linear-gradient(to top, #0b2538, #0b2538);
+            background: -moz-linear-gradient(to top, #0b2538, #8DC26F);
+            background: -o-linear-gradient(to top, #0b2538, #0b2538);
+            background: linear-gradient(to top, #0b2538, #0b2538);
+            background-size: cover;
+            background-attachment: fixed;
+            font-family: 'Roboto', sans-serif;
+        }
+        button {
+            width: 100%;
+            align-items: center;
+
+            background: 0b2538;
+        }
+    </style>
+
+
+</head>
+<body>
+    <h1><span style="color: #de7907;"> Please click on the ok button</span> for completing the Form</h1>
+<form method="post">
+{% csrf_token %}
+
+<a href="form" class="button">OK</a>
+
+</form>
+
+
+
+</body>
+</html>
